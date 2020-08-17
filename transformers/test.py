@@ -14,7 +14,6 @@ testfile = '../../data/interim/tags_few/sampled_20000_per_class/fasttext_distr/f
 with open(testfile, encoding='utf-8-sig') as f:
     lines = [line.rstrip('\n') for line in f]
 
-
 labels = [int(''.join(filter(str.isdigit, text.split()[0]))) for text in lines]
 trials = [text.split(' ', 1)[1] for text in lines]
 print(type(labels[0]))
@@ -31,9 +30,6 @@ for trial in progress_bar(trials, "Getting predictions for : "):
     # print(sentence.labels[0].score)
     predictions.append(int(sentence.labels[0].value))
 
-
-
-
 np.savetxt("transformers_preds.csv", predictions, delimiter=",")
 
 print(confusion_matrix(labels,predictions))        
@@ -42,6 +38,3 @@ print(classification_report(labels,predictions))
 # sentence = Sentence(text)
 # classifier.predict(sentence)
 # print(sentence.labels)
-
-
-#
