@@ -1,0 +1,4 @@
+models/*
+graphs/*
+__pycache__/
+*.csv
